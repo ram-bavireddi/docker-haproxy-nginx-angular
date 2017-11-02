@@ -1,0 +1,12 @@
+version: '3'
+services:
+  payment-gateway-web:
+    image: ram1988/projects:web
+    ports:
+      - "4200:4200"
+  my-haproxy:
+    build: my-haproxy
+    ports:
+      - "80:80"
+    links:
+      - payment-gateway-web
